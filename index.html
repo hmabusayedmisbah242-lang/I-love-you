@@ -3,78 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আপনার জন্য একটি ভালোবাসা ভরা চিঠি ❤️</title>
+    <title>ভালোবাসার রাজকীয় চিঠি ❤️ Sadika & Misbah</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for Bengali & Romantic Aesthetic -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&family=Charm:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Anek Bangla', sans-serif;
-            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #fda4af 100%);
+            background: radial-gradient(circle at center, #4c0519 0%, #1f020a 60%, #0f0105 100%);
             min-height: 100vh;
             overflow-x: hidden;
+            color: #fff;
         }
 
+        .font-romantic {
+            font-family: 'Charm', cursive;
+        }
         .font-handwriting {
             font-family: 'Dancing Script', cursive;
         }
 
-        /* Floating Hearts Animation Background */
-        .heart-particle {
+        /* Floating Background Particles */
+        .floating-text-particle {
             position: absolute;
-            bottom: -20px;
-            color: rgba(244, 63, 94, 0.5);
-            animation: floatUp 6s linear infinite;
+            bottom: -50px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
             pointer-events: none;
             z-index: 0;
+            animation: floatText 12s linear infinite;
+            text-shadow: 0 0 10px rgba(244, 63, 94, 0.8), 0 0 20px rgba(225, 29, 72, 0.5);
         }
 
-        @keyframes floatUp {
+        .floating-heart {
+            position: absolute;
+            bottom: -30px;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatUp 8s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.9));
+        }
+
+        @keyframes floatText {
             0% {
-                transform: translateY(0) rotate(0deg) scale(0.8);
-                opacity: 1;
+                transform: translateY(0) scale(0.8) rotate(-5deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.95;
+            }
+            85% {
+                opacity: 0.85;
             }
             100% {
-                transform: translateY(-105vh) rotate(360deg) scale(1.3);
+                transform: translateY(-115vh) scale(1.15) rotate(5deg);
                 opacity: 0;
             }
         }
 
-        /* 3D Envelope Styles & Animations */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            100% {
+                transform: translateY(-110vh) rotate(360deg) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        /* 3D Envelope Container */
         .envelope-wrapper {
-            perspective: 1000px;
+            perspective: 1200px;
         }
 
         .envelope {
             position: relative;
             width: 320px;
             height: 220px;
-            background-color: #f43f5e;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            box-shadow: 0 20px 30px rgba(225, 29, 72, 0.25), 0 8px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #be123c 0%, #9f1239 100%);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(225, 29, 72, 0.4), 0 10px 20px rgba(0, 0, 0, 0.6);
             cursor: pointer;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(251, 113, 133, 0.3);
         }
 
         @media (min-width: 640px) {
             .envelope {
-                width: 440px;
-                height: 290px;
+                width: 460px;
+                height: 300px;
             }
         }
 
         .envelope:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px) rotateX(8deg);
         }
 
-        /* Envelope Flap */
+        /* Flap */
         .envelope-flap {
             position: absolute;
             top: 0;
@@ -83,17 +118,18 @@
             height: 0;
             border-left: 160px solid transparent;
             border-right: 160px solid transparent;
-            border-top: 135px solid #e11d48;
+            border-top: 140px solid #e11d48;
             transform-origin: top;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s ease;
             z-index: 5;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
         }
 
         @media (min-width: 640px) {
             .envelope-flap {
-                border-left-width: 220px;
-                border-right-width: 220px;
-                border-top-width: 175px;
+                border-left-width: 230px;
+                border-right-width: 230px;
+                border-top-width: 185px;
             }
         }
 
@@ -102,7 +138,7 @@
             z-index: 1;
         }
 
-        /* Pocket (front folds) */
+        /* Envelope Inner Pocket Folds */
         .envelope-pocket-left {
             position: absolute;
             bottom: 0;
@@ -112,8 +148,9 @@
             border-left: 160px solid #fb7185;
             border-top: 110px solid transparent;
             border-bottom: 110px solid #fb7185;
-            border-bottom-left-radius: 12px;
+            border-bottom-left-radius: 16px;
             z-index: 4;
+            opacity: 0.95;
         }
 
         .envelope-pocket-right {
@@ -125,8 +162,9 @@
             border-right: 160px solid #fb7185;
             border-top: 110px solid transparent;
             border-bottom: 110px solid #fb7185;
-            border-bottom-right-radius: 12px;
+            border-bottom-right-radius: 16px;
             z-index: 4;
+            opacity: 0.95;
         }
 
         .envelope-pocket-bottom {
@@ -137,108 +175,111 @@
             height: 0;
             border-left: 160px solid transparent;
             border-right: 160px solid transparent;
-            border-bottom: 120px solid #f43f5e;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-bottom: 125px solid #f43f5e;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
             z-index: 4;
         }
 
         @media (min-width: 640px) {
             .envelope-pocket-left {
-                border-left-width: 220px;
-                border-top-width: 145px;
-                border-bottom-width: 145px;
+                border-left-width: 230px;
+                border-top-width: 150px;
+                border-bottom-width: 150px;
             }
             .envelope-pocket-right {
-                border-right-width: 220px;
-                border-top-width: 145px;
-                border-bottom-width: 145px;
+                border-right-width: 230px;
+                border-top-width: 150px;
+                border-bottom-width: 150px;
             }
             .envelope-pocket-bottom {
-                border-left-width: 220px;
-                border-right-width: 220px;
-                border-bottom-width: 160px;
+                border-left-width: 230px;
+                border-right-width: 230px;
+                border-bottom-width: 165px;
             }
         }
 
-        /* Heart Seal */
+        /* Wax Seal */
         .heart-seal {
             position: absolute;
-            top: 100px;
+            top: 105px;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 45px;
-            height: 45px;
-            background: #be123c;
+            width: 52px;
+            height: 52px;
+            background: radial-gradient(circle, #fda4af 0%, #be123c 70%, #881337 100%);
+            border: 2px solid #ffe4e6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.8), 0 4px 10px rgba(0,0,0,0.5);
             z-index: 6;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: all 0.5s ease;
             animation: pulseGlow 2s infinite;
         }
 
         @media (min-width: 640px) {
             .heart-seal {
-                top: 135px;
-                width: 55px;
-                height: 55px;
+                top: 140px;
+                width: 64px;
+                height: 64px;
             }
         }
 
         @keyframes pulseGlow {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(190, 18, 60, 0.7); }
-            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 12px rgba(190, 18, 60, 0); }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 15px rgba(244, 63, 94, 0.7); }
+            50% { transform: translate(-50%, -50%) scale(1.12); box-shadow: 0 0 30px rgba(244, 63, 94, 1); }
         }
 
         .envelope.open .heart-seal {
             opacity: 0;
             pointer-events: none;
-            transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.3);
         }
 
-        /* Letter Parchment */
-        .letter {
+        /* Envelope Inner Parchment Preview */
+        .letter-preview {
             position: absolute;
-            bottom: 10px;
+            bottom: 12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            height: 90%;
+            width: 88%;
+            height: 85%;
             background: #fffdfa;
-            background-image: radial-gradient(#fecdd3 0.75px, transparent 0.75px);
-            background-size: 12px 12px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            padding: 20px;
             z-index: 3;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s, opacity 0.5s ease;
-            opacity: 0;
-            overflow: hidden;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* Expanded Letter overlay state */
+        /* Full Interactive Modal Letter Parchment */
         .letter-modal {
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 92%;
-            max-width: 620px;
-            max-height: 85vh;
-            background: #fffdfa;
-            border: 2px solid #fecdd3;
-            border-radius: 16px;
-            box-shadow: 0 25px 50px -12px rgba(225, 29, 72, 0.25);
-            padding: 28px 24px;
+            transform: translate(-50%, -50%) scale(0.85);
+            width: 94%;
+            max-width: 720px;
+            max-height: 88vh;
+            background: linear-gradient(to bottom, #fffdfa 0%, #fff5f7 100%);
+            border: 2px solid #fbcfe8;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(244, 63, 94, 0.4);
+            padding: 32px 24px;
             z-index: 50;
             opacity: 0;
             pointer-events: none;
             transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow-y: auto;
+            color: #1f2937;
+        }
+
+        @media (min-width: 640px) {
+            .letter-modal {
+                padding: 40px 36px;
+            }
         }
 
         .letter-modal.active {
@@ -251,7 +292,7 @@
         .cursor {
             display: inline-block;
             width: 3px;
-            height: 1.1em;
+            height: 1.2em;
             background-color: #e11d48;
             margin-left: 2px;
             animation: blink 0.8s infinite;
@@ -263,67 +304,78 @@
             50% { opacity: 0; }
         }
 
-        /* Custom Scrollbar for Letter Modal */
+        /* Scrollbar Styling */
         .letter-modal::-webkit-scrollbar {
-            width: 6px;
+            width: 7px;
         }
         .letter-modal::-webkit-scrollbar-track {
-            background: #fff0f3;
+            background: #ffe4e6;
             border-radius: 10px;
         }
         .letter-modal::-webkit-scrollbar-thumb {
-            background: #fda4af;
+            background: #fb7185;
             border-radius: 10px;
         }
 
-        /* Audio Visualizer Pulse */
-        .music-pulse {
-            animation: pulseMusic 1.5s infinite alternate;
-        }
-        @keyframes pulseMusic {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
+        /* Golden Romantic Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 4rem;
+            color: rgba(244, 63, 94, 0.04);
+            pointer-events: none;
+            white-space: nowrap;
+            font-family: 'Dancing Script', cursive;
+            user-select: none;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen justify-between items-center relative overflow-x-hidden p-4">
+<body class="flex flex-col min-h-screen justify-between items-center relative overflow-x-hidden p-3 sm:p-6">
 
-    <!-- Container for Background Floating Hearts -->
-    <div id="hearts-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+    <!-- Container for Background Floating Particles & Texts -->
+    <div id="particle-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
 
-    <!-- Top Control Bar (Audio, Edit, Reset) -->
-    <header class="w-full max-w-4xl flex justify-between items-center z-10 pt-2 px-2">
+    <!-- Header Controls -->
+    <header class="w-full max-w-5xl flex justify-between items-center z-10 py-2 px-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg">
         <div class="flex items-center gap-2">
-            <span class="text-rose-600 font-bold text-xl tracking-wide flex items-center gap-2">
-                <i class="fa-solid fa-heart text-rose-500 animate-bounce"></i> 
-                <span class="hidden sm:inline">লাভ লেটার</span>
+            <span class="text-rose-400 font-bold text-lg sm:text-xl tracking-wide flex items-center gap-2">
+                <i class="fa-solid fa-heart-pulse text-rose-500 animate-bounce"></i> 
+                <span class="font-romantic text-xl sm:text-2xl text-pink-300">Misbah ❤️ Sadika</span>
             </span>
         </div>
 
-        <div class="flex items-center gap-3">
-            <!-- Edit Letter Button -->
-            <button id="editBtn" title="চিঠি এডিট করুন" class="flex items-center gap-2 bg-white/80 hover:bg-white text-rose-600 font-medium px-4 py-2 rounded-full shadow-md backdrop-blur-sm transition-all transform hover:scale-105 active:scale-95 text-sm">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Edit Button -->
+            <button id="editBtn" title="চিঠি এডিট করুন" class="flex items-center gap-2 bg-rose-900/60 hover:bg-rose-800 text-rose-200 font-medium px-3.5 py-1.5 rounded-full border border-rose-500/40 transition-all transform hover:scale-105 active:scale-95 text-xs sm:text-sm shadow">
                 <i class="fa-solid fa-pen-to-square"></i>
-                <span class="hidden sm:inline">এডিট করুন</span>
+                <span class="hidden sm:inline">চিঠি সংশোধন</span>
             </button>
 
             <!-- Audio Toggle Button -->
-            <button id="musicBtn" title="মিউজিক অন/অফ" class="flex items-center justify-center w-10 h-10 bg-white/80 hover:bg-white text-rose-600 rounded-full shadow-md backdrop-blur-sm transition-all transform hover:scale-105 active:scale-95">
-                <i id="musicIcon" class="fa-solid fa-music"></i>
+            <button id="musicBtn" title="ভালোবাসার মিউজিক" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-rose-900/60 hover:bg-rose-800 text-rose-300 rounded-full border border-rose-500/40 shadow transition-all transform hover:scale-105 active:scale-95">
+                <i id="musicIcon" class="fa-solid fa-music text-sm sm:text-base"></i>
             </button>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col items-center justify-center relative w-full my-8 z-10">
+    <!-- Main Section -->
+    <main class="flex-1 flex flex-col items-center justify-center relative w-full my-6 z-10">
         
-        <!-- Instruction Label -->
-        <div id="instruction" class="text-center mb-8 transition-opacity duration-500">
-            <h1 class="text-2xl sm:text-3xl font-bold text-rose-800 mb-2">আপনার জন্য একটি বিশেষ বার্তা! ❤️</h1>
-            <p class="text-rose-600 text-sm sm:text-base animate-pulse">খামের সিলটিতে অথবা খামে ক্লিক করে খুলুন</p>
+        <!-- Romantic Subtitle -->
+        <div id="instruction" class="text-center mb-8 transition-opacity duration-500 px-4">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-300 to-red-400 mb-2 font-romantic">
+                 (Most Sadika Jannat)
+            </h1>
+            <p class="text-rose-200/90 text-sm sm:text-base font-light animate-pulse flex items-center justify-center gap-2">
+                <span>HM Abu Sayed Misvah এর পক্ষ থেকে বিশেষ বার্তা</span>
+                <i class="fa-solid fa-heart text-rose-500"></i>
+            </p>
+            <p class="text-xs text-rose-400/80 mt-2">চিঠিটি পড়তে নিচের সিলযুক্ত খামটিতে স্পর্শ করুন</p>
         </div>
 
-        <!-- 3D Envelope Container -->
+        <!-- 3D Envelope -->
         <div class="envelope-wrapper">
             <div id="envelope" class="envelope">
                 <div class="envelope-flap"></div>
@@ -331,120 +383,121 @@
                 <div class="envelope-pocket-right"></div>
                 <div class="envelope-pocket-bottom"></div>
                 
-                <!-- Heart Seal -->
+                <!-- Wax Heart Seal -->
                 <div class="heart-seal">
-                    <i class="fa-solid fa-heart text-xl"></i>
+                    <i class="fa-solid fa-heart-crack text-xl sm:text-2xl text-rose-100"></i>
                 </div>
 
-                <!-- Preview Parchment Inside -->
-                <div class="letter flex flex-col justify-center items-center text-center">
-                    <i class="fa-solid fa-heart text-rose-400 text-3xl mb-2"></i>
-                    <p class="text-rose-700 font-semibold text-sm">চিঠিটি উম্মুক্ত হচ্ছে...</p>
+                <!-- Preview Sheet Inside Envelope -->
+                <div class="letter-preview flex flex-col justify-center items-center text-center p-3">
+                    <i class="fa-solid fa-heart text-rose-500 text-3xl mb-1"></i>
+                    <p class="text-rose-800 font-bold text-xs sm:text-sm">ভালোবাসার গোপন চিঠি...</p>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Expanded Parchment Paper Modal (Active when opened) -->
-    <div id="letterModal" class="letter-modal">
+    <!-- Detailed Letter Modal (Parchment Paper) -->
+    <div id="letterModal" class="letter-modal relative">
+        <div class="watermark">Misbah ❤️ Sadika</div>
+
         <!-- Close / Re-fold button -->
-        <button id="closeModalBtn" class="absolute top-4 right-4 text-rose-400 hover:text-rose-600 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-rose-50">
-            <i class="fa-solid fa-xmark text-xl"></i>
+        <button id="closeModalBtn" class="absolute top-4 right-4 text-rose-400 hover:text-rose-600 transition-colors w-9 h-9 flex items-center justify-center rounded-full hover:bg-rose-100/50">
+            <i class="fa-solid fa-xmark text-2xl"></i>
         </button>
 
         <!-- Romantic Parchment Layout -->
-        <div class="relative pt-2">
-            <!-- Header Decoration -->
-            <div class="flex justify-between items-center border-b border-rose-100 pb-3 mb-4">
-                <span class="text-xs font-semibold uppercase tracking-wider text-rose-400 font-handwriting text-lg">Hridoyer Kotha</span>
-                <div class="flex gap-1 text-rose-400">
-                    <i class="fa-solid fa-heart text-xs animate-ping"></i>
-                    <i class="fa-solid fa-heart text-xs"></i>
+        <div class="relative z-10">
+            <!-- Letter Header -->
+            <div class="flex justify-between items-center border-b border-rose-200/70 pb-4 mb-5">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-rose-500 text-lg"></i>
+                    <span class="text-sm font-semibold tracking-wider text-rose-700 font-handwriting text-xl">Love Letter for My Forever Queen</span>
                 </div>
+                <span class="text-xs text-rose-400 font-medium font-mono">আমার অনন্ত প্রেম ❤️</span>
             </div>
 
-            <!-- Letter Body -->
-            <div class="text-gray-800 leading-relaxed text-base sm:text-lg min-h-[180px] whitespace-pre-line" id="letterBody">
+            <!-- Letter Body with Typewriter Effect -->
+            <div class="text-gray-800 leading-relaxed text-base sm:text-lg min-h-[260px] whitespace-pre-line font-normal" id="letterBody">
                 <span id="typedText"></span><span id="cursor" class="cursor"></span>
             </div>
 
-            <!-- Footer / Signoff -->
-            <div id="letterFooter" class="mt-8 pt-4 border-t border-rose-100 flex flex-col items-end opacity-0 transition-opacity duration-1000">
-                <p class="text-xs text-rose-400">ভালোবাসার সাথে,</p>
-                <p id="senderName" class="text-xl font-bold text-rose-700 font-handwriting mt-1">তোমার ভালোবাসার মানুষ ❤️</p>
+            <!-- Footer / Sign-off -->
+            <div id="letterFooter" class="mt-10 pt-4 border-t border-rose-200/70 flex flex-col items-end opacity-0 transition-opacity duration-1000">
+                <p class="text-sm text-rose-500 font-medium">চিরদিনের মতো শুধু তোমারই,</p>
+                <p id="senderName" class="text-2xl sm:text-3xl font-extrabold text-rose-700 font-romantic mt-1">(HM Abu Sayed Misbah)</p>
+                <p class="text-xs text-rose-400 mt-1">I Love you ❤️‍🩹❤️</p>
             </div>
         </div>
 
-        <!-- Action Bar Inside Modal -->
-        <div class="mt-6 flex justify-between items-center pt-2">
-            <button id="replayBtn" class="text-xs text-rose-500 hover:text-rose-700 flex items-center gap-1">
+        <!-- Action Bar inside Parchment -->
+        <div class="mt-8 flex justify-between items-center pt-3 border-t border-rose-100 relative z-10">
+            <button id="replayBtn" class="text-xs sm:text-sm text-rose-600 hover:text-rose-800 flex items-center gap-1.5 font-medium transition-colors">
                 <i class="fa-solid fa-rotate-right"></i> পুনরায় অ্যানিমেট করুন
             </button>
-            <div class="flex gap-2">
-                <button id="shareBtn" class="bg-rose-500 hover:bg-rose-600 text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1 shadow transition-all">
-                    <i class="fa-solid fa-copy"></i> কপি টেক্সট
-                </button>
-            </div>
+            <button id="shareBtn" class="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white text-xs sm:text-sm px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg transition-all transform hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-copy"></i> পুরো চিঠি কপি করুন
+            </button>
         </div>
     </div>
 
     <!-- Background Overlay for Modal -->
-    <div id="modalOverlay" class="fixed inset-0 bg-rose-950/30 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-500"></div>
+    <div id="modalOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
-    <!-- Edit Message Modal -->
+    <!-- Edit Custom Letter Modal -->
     <div id="editModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl transform scale-95 transition-all" id="editModalContent">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold text-rose-800 flex items-center gap-2">
-                    <i class="fa-solid fa-pen text-rose-500"></i> চিঠি কাস্টমাইজ করুন
+        <div class="bg-slate-900 border border-rose-500/30 rounded-2xl max-w-lg w-full p-6 shadow-2xl transform scale-95 transition-all text-gray-200" id="editModalContent">
+            <div class="flex justify-between items-center mb-5 border-b border-rose-900/50 pb-3">
+                <h3 class="text-lg font-bold text-rose-300 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-nib text-rose-400"></i> প্রেমপত্র কাস্টমাইজ করুন
                 </h3>
-                <button id="closeEditModalBtn" class="text-gray-400 hover:text-gray-600">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                <button id="closeEditModalBtn" class="text-gray-400 hover:text-gray-200">
+                    <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
             
             <div class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-rose-700 mb-1">প্রাপক / সম্বোধন:HM Abu Sayed Misbah</label>
-                    <input type="text" id="editSalutation" class="w-full px-3 py-2 border border-rose-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm" placeholder="যেমন: প্রিয়তমা,">
+                    <label class="block text-xs font-semibold text-rose-300 mb-1">প্রাপক (Most Sadika Jannat):</label>
+                    <input type="text" id="editSalutation" class="w-full px-3 py-2 bg-slate-800 border border-rose-900 rounded-lg focus:outline-none focus:border-rose-500 text-sm text-white" placeholder="যেমন: প্রিয়তমা সাদিকা জান্নাত,">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-rose-700 mb-1">ভালোবাসার মূল বার্তা:</label>
-                    <textarea id="editContent" rows="5" class="w-full px-3 py-2 border border-rose-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm" placeholder="আপনার মনের কথা লিখুন..."></textarea>
+                    <label class="block text-xs font-semibold text-rose-300 mb-1">দীর্ঘ রোমান্টিক বার্তা:</label>
+                    <textarea id="editContent" rows="6" class="w-full px-3 py-2 bg-slate-800 border border-rose-900 rounded-lg focus:outline-none focus:border-rose-500 text-sm text-white" placeholder="আপনার বার্তা লিখুন..."></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-rose-700 mb-1">প্রেরকের নাম:Most Sadika Jannat</label>
-                    <input type="text" id="editSender" class="w-full px-3 py-2 border border-rose-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm" placeholder="যেমন: তোমারি হৃদয়">
+                    <label class="block text-xs font-semibold text-rose-300 mb-1">প্রেরকের নাম (HM Abu Sayed Misbah):</label>
+                    <input type="text" id="editSender" class="w-full px-3 py-2 bg-slate-800 border border-rose-900 rounded-lg focus:outline-none focus:border-rose-500 text-sm text-white" placeholder="এইচ এম আবু সাঈদ মিসবাহ">
                 </div>
             </div>
 
-            <div class="mt-6 flex justify-end gap-2">
-                <button id="cancelEditBtn" class="px-4 py-2 text-sm text-gray-500 hover:text-gray-700">বাতিল</button>
-                <button id="saveEditBtn" class="px-5 py-2 text-sm bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-lg shadow-md transition-all">সংরক্ষণ করুন</button>
+            <div class="mt-6 flex justify-end gap-3">
+                <button id="cancelEditBtn" class="px-4 py-2 text-sm text-gray-400 hover:text-gray-200">বাতিল</button>
+                <button id="saveEditBtn" class="px-5 py-2 text-sm bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-medium rounded-lg shadow-md transition-all">সংরক্ষণ করুন</button>
             </div>
         </div>
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-900/90 text-white text-xs sm:text-sm px-4 py-2 rounded-full shadow-lg z-50 opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-rose-400"></i>
-        <span id="toastMsg">বার্তা কপি করা হয়েছে!</span>
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-rose-950/90 border border-rose-500/50 text-white text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-2xl z-50 opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2">
+        <i class="fa-solid fa-heart text-rose-400"></i>
+        <span id="toastMsg">কপি করা হয়েছে!</span>
     </div>
 
     <!-- Footer -->
-    <footer class="w-full text-center py-3 text-xs text-rose-700/70 z-10">
-        ভালোবাসায় তৈরি ❤️ বিশেষ করে আপনার জন্য তৈরি করেছেন ( HM Abu Sayed Misbah ) 
+    <footer class="w-full text-center py-2 text-xs text-rose-300/60 z-10">
+        HM Abu Sayed Misbah ❤️ Most Sadika Jannat — চিরন্তন ভালোবাসার বন্ধন
     </footer>
 
     <script>
-        /* Default Romantic Love Letter Content in Bengali */
+        /* Detailed & Lyrical Romantic Letter in Bengali */
         let letterData = {
-            salutation: "প্রিয়,",
-            body: "তুমি হয়তো জানো না, জীবনের ছোট ছোট মুহূর্তগুলো তোমার উপস্থিতিতে কতটা সুন্দর হয়ে ওঠে। সকালের মিষ্টি রোদ কিংবা রাতের নীরবতা—সবকিছুতেই যেন তোমার ছোঁয়া খুঁজে পাই।\n\nআমার হৃদয়ের প্রতিটা স্পন্দনে কেবল তোমারি সুর বাজে। এই ছোট্ট চিঠির প্রতিটি শব্দে লুকিয়ে আছে তোমার জন্য আমার অফুরন্ত ভালোবাসা। সারাজীবন তোমার হাতটি ধরে পাশে চলতে চাই।",
-            sender: "তোমারি ভালোবাসার মানুষ ❤️"
+            salutation: "প্রিয়তমা সাদিকা জান্নাত (Most Sadika Jannat),",
+            body: "আমার হৃদয়ের প্রতিটি হার্টবিট এ কেবলই তোমার নামটি বাজে। তুমি আমার জীবনের সেই সুন্দরতম আলো, যা আমার চারপাশের অন্ধকারকে মুছে দিয়ে এক অফুরন্ত ভালোবাসায় ভরিয়ে দিয়েছে।\n\nতোমাকে দেখার পর থেকে আমি বুঝেছি, সত্যিকারের ভালোবাসা আসলে কেমন হয়। তোমার একটু মিষ্টি হাসি আমার সারাদিনের সব ক্লান্তি দূর করে দেয়। তোমার প্রতিটি কথায়, প্রতিটি কাজে আমি নতুন করে তোমার প্রেমে পড়ি।\n\nPakhiiiii🫠, আমি তোমাকে কথা দিচ্ছি—জীবনের প্রতিটি মোড়ে, হাজারো ঝড়-ঝাপটার মধ্যেও আমি তোমার হাতটি শক্ত করে ধরে রাখব। মেঘলা দিনে তোমার ছাতা হব, আর খুশির দিনে তোমার আনন্দের সঙ্গী হব। আমার এই ছোট্ট হৃদয়ের সবটুকু ভালোবাসা, শ্রদ্ধা আর অনুভূতির একমাত্র রাজকীয় মালিক শুধু তুমি।\n\nতোমাকে আমি কতটা ভালোবাসি তা পরিমাপ করার ক্ষমতা এই পৃথিবীতে কোনো শব্দের নেই। তুমি আমার বর্তমান, তুমিই আমার ভবিষ্যৎ। তুমি আমার জীবনের সবচেয়ে সুন্দর উপহার।\n\nI Love you ❤️‍🩹❤️\nI Love you Forever, My Sadika!",
+            sender: "(HM Abu Sayed Misbah)"
         };
 
         // DOM Elements
@@ -458,7 +511,7 @@
         const letterFooter = document.getElementById('letterFooter');
         const senderNameEl = document.getElementById('senderName');
         
-        // Edit Elements
+        // Customization Modal Elements
         const editBtn = document.getElementById('editBtn');
         const editModal = document.getElementById('editModal');
         const editModalContent = document.getElementById('editModalContent');
@@ -474,35 +527,58 @@
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
 
-        // Typing effect state
+        // Typing State
         let isTyping = false;
         let typeTimeout = null;
 
-        /* Floating Hearts Animation Generator */
-        function createHeart() {
-            const heartsContainer = document.getElementById('hearts-container');
-            const heart = document.createElement('i');
+        /* Floating Background Particles Generator (Hearts + Texts) */
+        function createBackgroundParticles() {
+            const container = document.getElementById('particle-container');
             
-            // Random heart icons & colors
-            const icons = ['fa-heart', 'fa-heart text-pink-400', 'fa-heart text-rose-300', 'fa-heart text-red-400'];
-            const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-            
-            heart.className = `fa-solid ${randomIcon} heart-particle`;
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
-            
-            heartsContainer.appendChild(heart);
+            // Generate Floating Text Particle ("I Love you ❤️‍🩹❤️" & Names)
+            const textArray = [
+                "I Love you ❤️‍🩹❤️",
+                "Most Sadika Jannat ❤️",
+                "HM Abu Sayed Misbah ❤️",
+                "I Love you ❤️‍🩹❤️",
+                "সাদিকা ❤️ মিসবাহ",
+                "Forever & Always ❤️",
+                "I Love you Sadika ❤️‍🩹❤️"
+            ];
 
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
+            // Floating Text
+            setInterval(() => {
+                const textNode = document.createElement('div');
+                const randomText = textArray[Math.floor(Math.random() * textArray.length)];
+                textNode.className = 'floating-text-particle font-romantic text-rose-300';
+                textNode.innerText = randomText;
+                textNode.style.left = Math.random() * 85 + 5 + 'vw';
+                textNode.style.animationDuration = (Math.random() * 4 + 9) + 's';
+                textNode.style.fontSize = (Math.random() * 6 + 14) + 'px';
+                
+                container.appendChild(textNode);
+                setTimeout(() => textNode.remove(), 13000);
+            }, 1200);
+
+            // Floating Hearts
+            setInterval(() => {
+                const heart = document.createElement('i');
+                const heartIcons = ['fa-heart text-rose-500', 'fa-heart text-pink-400', 'fa-heart text-red-500', 'fa-heart-pulse text-rose-400'];
+                const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                
+                heart.className = `fa-solid ${randomIcon} floating-heart`;
+                heart.style.left = Math.random() * 95 + 'vw';
+                heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 18 + 10) + 'px';
+                
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 9000);
+            }, 350);
         }
 
-        // Periodically generate hearts
-        setInterval(createHeart, 400);
+        createBackgroundParticles();
 
-        /* Web Audio API for Soft Background Melody */
+        /* Web Audio API Synthesizer (Ambient Soft Musical Chords) */
         let audioCtx = null;
         let isPlaying = false;
         let melodyInterval = null;
@@ -513,21 +589,20 @@
             }
         }
 
-        // Soft music tone generator
-        function playSoftNote(freq, duration = 1.2) {
+        function playRomanticChords(freq, duration = 1.8) {
             if (!audioCtx || audioCtx.state !== 'running') return;
 
             try {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
 
-                osc.type = 'sine'; // Soft musical sine wave
+                osc.type = 'sine';
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
-                // Gentle Attack & Decay Envelope
+                // Soft Attack, Decay, Sustain & Release
                 gain.gain.setValueAtTime(0, audioCtx.currentTime);
-                gain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.2);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                gain.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.3);
+                gain.gain.exponentialRampToValueAtTime(0.0005, audioCtx.currentTime + duration);
 
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -535,13 +610,17 @@
                 osc.start();
                 osc.stop(audioCtx.currentTime + duration);
             } catch (e) {
-                console.log("Audio error", e);
+                console.log("Audio Error", e);
             }
         }
 
-        // Romantic Ambient Arpeggio Sequence
-        const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 329.63, 293.66]; // C E G C A F E D
-        let noteIdx = 0;
+        // Dreamy Melody Frequencies
+        const melodyNotes = [
+            261.63, 329.63, 392.00, 523.25, // C4, E4, G4, C5
+            440.00, 349.23, 293.66, 392.00, // A4, F4, D4, G4
+            329.63, 261.63, 349.23, 440.00  // E4, C4, F4, A4
+        ];
+        let noteIndex = 0;
 
         function toggleMusic() {
             initAudio();
@@ -550,30 +629,26 @@
             }
 
             if (isPlaying) {
-                // Stop Music
                 clearInterval(melodyInterval);
                 isPlaying = false;
-                musicIcon.className = "fa-solid fa-music";
-                musicBtn.classList.remove('music-pulse', 'bg-rose-100');
+                musicIcon.className = "fa-solid fa-music text-rose-300";
+                musicBtn.classList.remove('bg-rose-700', 'ring-2', 'ring-rose-400');
             } else {
-                // Start Music
                 isPlaying = true;
-                musicIcon.className = "fa-solid fa-volume-high text-rose-600";
-                musicBtn.classList.add('music-pulse', 'bg-rose-100');
+                musicIcon.className = "fa-solid fa-volume-high text-rose-200 animate-pulse";
+                musicBtn.classList.add('bg-rose-700', 'ring-2', 'ring-rose-400');
 
-                // Play soft recurring sequence
                 melodyInterval = setInterval(() => {
-                    playSoftNote(notes[noteIdx], 1.5);
-                    noteIdx = (noteIdx + 1) % notes.length;
-                }, 600);
+                    playRomanticChords(melodyNotes[noteIndex], 2.2);
+                    noteIndex = (noteIndex + 1) % melodyNotes.length;
+                }, 750);
             }
         }
 
         musicBtn.addEventListener('click', toggleMusic);
 
-        /* Typewriter Animation Effect */
+        /* Typewriter Effect with Sound Feedback */
         function startTypewriter() {
-            // Reset text
             typedTextEl.innerHTML = '';
             cursorEl.style.display = 'inline-block';
             letterFooter.style.opacity = '0';
@@ -594,18 +669,21 @@
                     }
                     i++;
                     
-                    // Add subtle typing sound effect
-                    if (isPlaying && i % 3 === 0) {
-                        playSoftNote(800 + Math.random() * 200, 0.05);
+                    // Gentle typing sound effect
+                    if (isPlaying && i % 4 === 0) {
+                        playRomanticChords(700 + Math.random() * 300, 0.04);
                     }
 
-                    // Variable speed for realism
-                    const speed = char === ',' || char === '।' || char === '—' ? 250 : (Math.random() * 30 + 35);
-                    typeTimeout = setTimeout(typeNextChar, speed);
+                    // Pacing adjustments for commas & sentence ends
+                    let delay = 35;
+                    if (char === ',' || char === '—') delay = 220;
+                    if (char === '।' || char === '!' || char === '?') delay = 450;
+
+                    typeTimeout = setTimeout(typeNextChar, delay);
                 } else {
                     isTyping = false;
                     cursorEl.style.display = 'none';
-                    // Show footer smoothly
+                    // Reveal Footer smoothly
                     senderNameEl.innerText = letterData.sender;
                     letterFooter.style.opacity = '1';
                 }
@@ -614,11 +692,10 @@
             typeNextChar();
         }
 
-        /* Envelope Open Animation Logic */
+        /* Envelope Open Handler */
         function openEnvelope() {
             if (envelope.classList.contains('open')) return;
 
-            // Start audio if not already running on user click
             if (!isPlaying) {
                 toggleMusic();
             }
@@ -626,15 +703,14 @@
             envelope.classList.add('open');
             instruction.style.opacity = '0';
 
-            // After envelope flap opens, display paper modal
+            // Reveal letter modal smoothly
             setTimeout(() => {
                 modalOverlay.classList.remove('pointer-events-none');
                 modalOverlay.classList.add('opacity-100');
                 letterModal.classList.add('active');
 
-                // Trigger typewriter
-                setTimeout(startTypewriter, 300);
-            }, 700);
+                setTimeout(startTypewriter, 350);
+            }, 750);
         }
 
         function closeEnvelopeModal() {
@@ -642,26 +718,25 @@
             modalOverlay.classList.remove('opacity-100');
             modalOverlay.classList.add('pointer-events-none');
 
-            // Reset envelope flap after modal closes
             setTimeout(() => {
                 envelope.classList.remove('open');
                 instruction.style.opacity = '1';
                 if (typeTimeout) clearTimeout(typeTimeout);
-            }, 400);
+            }, 450);
         }
 
         envelope.addEventListener('click', openEnvelope);
         closeModalBtn.addEventListener('click', closeEnvelopeModal);
         modalOverlay.addEventListener('click', closeEnvelopeModal);
 
-        /* Replay Typing */
+        /* Replay Animation */
         replayBtn.addEventListener('click', () => {
             if (!isTyping) {
                 startTypewriter();
             }
         });
 
-        /* Toast Helper */
+        /* Copy Toast Helper */
         function showToast(msg) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toastMsg');
@@ -672,28 +747,27 @@
             setTimeout(() => {
                 toast.classList.remove('opacity-100');
                 toast.classList.add('opacity-0');
-            }, 2500);
+            }, 2600);
         }
 
-        /* Share / Copy Functionality */
+        /* Copy Letter Text */
         shareBtn.addEventListener('click', () => {
             const fullMessage = `${letterData.salutation}\n\n${letterData.body}\n\n— ${letterData.sender}`;
             
-            // Legacy copy support for iframe context
             const tempInput = document.createElement('textarea');
             tempInput.value = fullMessage;
             document.body.appendChild(tempInput);
             tempInput.select();
             try {
                 document.execCommand('copy');
-                showToast("চিঠির কথাগুলো কপি করা হয়েছে!");
+                showToast("ভালোবাসার পুরো চিঠিটি কপি করা হয়েছে! ❤️");
             } catch (err) {
-                showToast("কপি করা সম্ভব হয়নি");
+                showToast("কপি করতে সমস্যা হয়েছে");
             }
             document.body.removeChild(tempInput);
         });
 
-        /* Edit Modal Logic */
+        /* Customization Modal Handlers */
         function openEditModal() {
             editSalutation.value = letterData.salutation;
             editContent.value = letterData.body;
@@ -722,7 +796,7 @@
             const sender = editSender.value.trim();
 
             if (!sal || !body || !sender) {
-                showToast("দয়া করে সবগুলো ঘর পূরণ করুন");
+                showToast("দয়া করে সবকটি ঘর পূরণ করুন");
                 return;
             }
 
@@ -731,9 +805,8 @@
             letterData.sender = sender;
 
             closeEditModal();
-                showToast("চিঠি আপডেট করা হয়েছে! ❤️");
+            showToast("চিঠি সফলভাবে সংশোধন করা হয়েছে! ❤️");
 
-            // If modal is currently active, replay typewriter with new content
             if (letterModal.classList.contains('active')) {
                 startTypewriter();
             }
